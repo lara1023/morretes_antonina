@@ -116,7 +116,7 @@ const constructions = [
 
         location: "Centro Histórico de Morretes",
 
-        image: "./img/igreja-morretes.jpg",
+        image: "../src/img/igreja-morretes.jpg",
 
         description:
             "Construção histórica incluída no projeto para representar o patrimônio arquitetônico de Morretes. A página pode receber fotografias, informações históricas e uma reconstrução digital.",
