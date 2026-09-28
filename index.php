@@ -1,13 +1,138 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__ . '/conexao.php';
 
-$stmt = $pdo->query("SELECT * FROM patrimonios ORDER BY FIELD(cidade, 'Antonina', 'Morretes'), id");
-$patrimonios = $stmt->fetchAll();
+/*
+|--------------------------------------------------------------------------
+| PATRIMÔNIOS
+|--------------------------------------------------------------------------
+| Os dados ficam diretamente neste arquivo.
+| Não é necessário banco de dados ou MySQL.
+*/
 
-function e(?string $valor): string {
+$patrimonios = [
+
+    [
+        'id' => 1,
+        'cidade' => 'Antonina',
+        'slug' => 'pilar',
+        'nome' => 'Igreja de Nossa Senhora do Pilar',
+        'inscricao' => '122-II',
+        'data_tombamento' => '08 de novembro de 1999',
+        'localizacao' => 'Praça Coronel Macedo – Centro, Antonina/PR',
+        'periodo' => 'Mais de três séculos de história',
+        'descricao' => 'Uma das edificações religiosas mais antigas do Paraná. A capela-mor foi inaugurada em 1715 e a construção foi ampliada ao longo do tempo. Desde 1999, é bem cultural tombado pelo Estado do Paraná e, desde 2012, integra o tombamento do Centro Histórico de Antonina pelo IPHAN.',
+        'caracteristicas' => 'Arquitetura religiosa histórica; núcleo inicial da antiga Freguesia de Nossa Senhora do Pilar.',
+        'imagem_atual' => './img/antonina/pilar/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'Patrimônio Cultural do Paraná',
+        'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-da-Nossa-Senhora-do-Pilar-Antonina',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/Category:Igreja_de_Nossa_Senhora_do_Pilar_(Antonina)',
+        'fonte_imagem_historica' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-da-Nossa-Senhora-do-Pilar-Antonina'
+    ],
+
+    [
+        'id' => 2,
+        'cidade' => 'Antonina',
+        'slug' => 'estacao-ferroviaria',
+        'nome' => 'Estação Ferroviária de Antonina',
+        'inscricao' => '173-II',
+        'data_tombamento' => '28 de agosto de 2012',
+        'localizacao' => 'Rua Uruguai, Antonina/PR',
+        'periodo' => 'Final do século XIX / início do século XX',
+        'descricao' => 'A primeira estação, construída em madeira, foi inaugurada em 1892. A sede atual, em alvenaria, data de 1916. O conjunto está ligado à expansão ferroviária do Paraná, ao antigo ramal Morretes–Antonina e às atividades portuárias e comerciais do município.',
+        'caracteristicas' => 'Patrimônio ferroviário; relação com circulação econômica, integração territorial e desenvolvimento urbano.',
+        'imagem_atual' => './img/antonina/estacao/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'Patrimônio Cultural do Paraná',
+        'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Estacao-Ferroviaria-de-Antonina',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/Category:Estação_Ferroviária_de_Antonina',
+        'fonte_imagem_historica' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Estacao-Ferroviaria-de-Antonina'
+    ],
+
+    [
+        'id' => 3,
+        'cidade' => 'Antonina',
+        'slug' => 'sao-benedito',
+        'nome' => 'Igreja São Benedito',
+        'inscricao' => null,
+        'data_tombamento' => 'Integra o Centro Histórico de Antonina, tombado pelo IPHAN em 2012',
+        'localizacao' => 'Rua XV de Novembro, 150 – Centro, Antonina/PR',
+        'periodo' => 'Construção secular',
+        'descricao' => 'Igreja de características históricas e coloniais que integra o Centro Histórico de Antonina. Em 2026, o IPHAN registrou obras de restauração financiadas pelo Novo PAC, com conclusão prevista para fevereiro de 2027.',
+        'caracteristicas' => 'Características coloniais; relação com a memória religiosa e cultural de Antonina.',
+        'imagem_atual' => './img/antonina/sao-benedito/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'IPHAN / Prefeitura de Antonina',
+        'fonte_url' => 'https://www.gov.br/iphan/pt-br/assuntos/noticias/iphan-fiscaliza-obras-de-restauracao-na-igreja-sao-benedito-em-antonina-pr',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/File:Igreja_Matriz_de_Antonina4.JPG',
+        'fonte_imagem_historica' => 'https://www.gov.br/iphan/pt-br/assuntos/noticias/iphan-fiscaliza-obras-de-restauracao-na-igreja-sao-benedito-em-antonina-pr'
+    ],
+
+    [
+        'id' => 4,
+        'cidade' => 'Morretes',
+        'slug' => 'rocha-pombo',
+        'nome' => 'Casa Rocha Pombo',
+        'inscricao' => '40-II',
+        'data_tombamento' => '19 de julho de 1973',
+        'localizacao' => 'Largo Dr. José Pereira, 43 – Morretes/PR',
+        'periodo' => 'Construção de data não determinada',
+        'descricao' => 'Casa em que nasceu José Francisco da Rocha Pombo. A documentação oficial informa que não existem elementos precisos sobre o ano em que a casa foi construída. O imóvel foi restaurado pelo Governo do Paraná e pela Prefeitura de Morretes e adaptado para serviços de biblioteca municipal.',
+        'caracteristicas' => 'Moradia de um pavimento em alvenaria mista de pedra e tijolos; duas frentes; vergas em arco semicircular; janelas de guilhotina; cobertura de quatro águas com telha capa-e-canal.',
+        'imagem_atual' => './img/morretes/rocha-pombo/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'Patrimônio Cultural do Paraná',
+        'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Casa-Rocha-Pombo-Morretes',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/File:Rocha_Pombo_Casa.jpg',
+        'fonte_imagem_historica' => 'https://www.patrimoniocultural.pr.gov.br/Galeria-de-Imagens/Casa-Rocha-Pombo-Morretes'
+    ],
+
+    [
+        'id' => 5,
+        'cidade' => 'Morretes',
+        'slug' => 'sao-sebastiao',
+        'nome' => 'Igreja de São Sebastião de Porto de Cima',
+        'inscricao' => '3-II',
+        'data_tombamento' => '14 de março de 1963',
+        'localizacao' => 'Porto de Cima – Morretes/PR',
+        'periodo' => 'Século XVIII e ampliações posteriores',
+        'descricao' => 'Com mais de dois séculos de história, a igreja testemunhou a colonização luso-brasileira da região. A construção de uma capela sob a invocação de Nossa Senhora da Guia e São Sebastião foi iniciada em 1779. A ampliação posterior deixou duas fachadas como testemunho de diferentes etapas da história do edifício.',
+        'caracteristicas' => 'Duas fachadas; frontão triangular; elementos decorativos associados à fase mais antiga; localização em frente à praça principal de Porto de Cima, às margens do Rio Nhundiaquara.',
+        'imagem_atual' => './img/morretes/sao-sebastiao/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'Patrimônio Cultural do Paraná',
+        'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-de-Sao-Sebastiao-de-Porto-de-Cima-Morretes',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/File:Igreja_de_São_Sebastião_do_Porto_de_Cima.jpg',
+        'fonte_imagem_historica' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-de-Sao-Sebastiao-de-Porto-de-Cima-Morretes'
+    ],
+
+    [
+        'id' => 6,
+        'cidade' => 'Morretes',
+        'slug' => 'conjunto-historico',
+        'nome' => 'Conjunto Histórico, Urbanístico e Paisagístico de Morretes',
+        'inscricao' => '28-I e 180-II',
+        'data_tombamento' => '18 de julho de 2022',
+        'localizacao' => 'Área central de Morretes/PR',
+        'periodo' => 'Formação histórica do litoral paranaense',
+        'descricao' => 'O conjunto reúne uma paisagem urbana representativa da formação histórica do litoral paranaense, às margens do Rio Nhundiaquara e ao sopé da Serra do Mar. Preserva relações entre natureza, caminhos coloniais, arquitetura, ferrovia, comércio, navegação fluvial e modos tradicionais de ocupação.',
+        'caracteristicas' => 'Paisagem urbana histórica; arquitetura civil e religiosa; relação entre cidade, rio, serra e caminhos históricos.',
+        'imagem_atual' => './img/morretes/conjunto-historico/atual.jpg',
+        'imagem_historica' => null,
+        'fonte_nome' => 'Patrimônio Cultural do Paraná',
+        'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Pagina/28-I-e-180-II-Conjunto-Historico-Urbanistico-e-Paisagistico-de-Morretes',
+        'fonte_imagem_atual' => 'https://commons.wikimedia.org/wiki/Category:Morretes',
+        'fonte_imagem_historica' => 'https://www.patrimoniocultural.pr.gov.br/Pagina/28-I-e-180-II-Conjunto-Historico-Urbanistico-e-Paisagistico-de-Morretes'
+    ]
+
+];
+
+
+function e(?string $valor): string
+{
     return htmlspecialchars($valor ?? '', ENT_QUOTES, 'UTF-8');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
