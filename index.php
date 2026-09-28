@@ -118,25 +118,15 @@ function e(?string $valor): string {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Patrimônio Vivo: mapeamento interativo da arquitetura histórica de Antonina e Morretes.">
+    <meta name="description" content="Patrimônio Vivo: mapeamento interativo da arquitetura histórica de Antonina e Morretes.">
 
     <title>Patrimônio Vivo | Antonina e Morretes</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-        rel="stylesheet">
-
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" >
 
     <script>
         tailwind.config = {
@@ -155,11 +145,9 @@ function e(?string $valor): string {
 <body class="bg-stone-50 text-stone-900 font-sans">
 
 <header class="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-stone-950/90 text-white backdrop-blur">
-
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
 
         <a href="#" class="flex items-center gap-3">
-
             <span class="grid h-10 w-10 place-items-center rounded-full bg-amber-500 text-stone-950">
                 <i class="bi bi-buildings text-xl"></i>
             </span>
@@ -175,7 +163,6 @@ function e(?string $valor): string {
             </div>
 
         </a>
-
         <nav class="hidden items-center gap-7 text-sm md:flex">
 
             <a href="#patrimonios" class="transition hover:text-amber-400">
@@ -443,31 +430,22 @@ function e(?string $valor): string {
                         <h3 class="mt-2 font-display text-2xl leading-tight text-stone-950">
                             <?= e($p['nome']) ?>
                         </h3>
-
                         <p class="mt-3 line-clamp-3 text-sm leading-6 text-stone-600">
                             <?= e($p['descricao']) ?>
                         </p>
-
                         <button
                             class="open-modal mt-6 inline-flex items-center gap-2 font-semibold text-stone-950 transition hover:text-amber-700"
                             data-id="<?= (int)$p['id'] ?>"
                         >
                             Ver patrimônio
-
                             <i class="bi bi-arrow-up-right"></i>
                         </button>
-
                     </div>
-
                 </article>
-
             <?php endforeach; ?>
-
         </div>
-
     </section>
 
-    <!-- PROJETO -->
 
     <section
         id="projeto"
