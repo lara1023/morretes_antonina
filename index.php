@@ -120,7 +120,7 @@ function e(?string $valor): string {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Patrimônio Vivo: mapeamento interativo da arquitetura histórica de Antonina e Morretes.">
+        content="Patrimônio Vivo: mapeamento interativo da arquitetura histórica de Antonina e Morretes.">
 
     <title>Patrimônio Vivo | Antonina e Morretes</title>
 
@@ -505,7 +505,7 @@ function e(?string $valor): string {
                     </strong>:
 
                     o visitante pode comparar registros e compreender visualmente a permanência,
-                    transformação e contexto dos lugares.
+                    transformação e contexto dos lugares. Além disso, o projeto utiliza modelagens 3D para representar os patrimônios de forma interativa e imersiva. Essa tecnologia possibilita ao visitante explorar virtualmente as estruturas arquitetônicas, observar detalhes e ter uma compreensão mais próxima de suas características, complementando as informações históricas apresentadas no site.
 
                 </p>
 
