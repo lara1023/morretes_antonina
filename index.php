@@ -15,6 +15,7 @@ $patrimonios = [
         'caracteristicas' => 'Arquitetura religiosa histórica; núcleo inicial da antiga Freguesia de Nossa Senhora do Pilar.',
         'imagem_atual' => './img/antonina/pilar/atual.png',
         'imagem_historica' => './img/antonina/pilar/historica.png',
+        'video' => './video/antonina/pilar/video.mp4',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-da-Nossa-Senhora-do-Pilar-Antonina',
         
@@ -35,7 +36,7 @@ $patrimonios = [
         'imagem_historica' => './img/antonina/estacao/historica.png',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Estacao-Ferroviaria-de-Antonina',
-        
+        'video' => './video/antonina/estacao/video.mp4'
     ],
 
     [
@@ -53,6 +54,7 @@ $patrimonios = [
         'imagem_historica' => './img/antonina/sao-benedito/historica.jpg',
         'fonte_nome' => 'IPHAN / Prefeitura de Antonina',
         'fonte_url' => 'https://www.gov.br/iphan/pt-br/assuntos/noticias/iphan-fiscaliza-obras-de-restauracao-na-igreja-sao-benedito-em-antonina-pr',
+        'video' => './video/antonina/sao-benedito/video.mp4',
     ],
 
     [
@@ -70,6 +72,7 @@ $patrimonios = [
         'imagem_historica' => './img/morretes/rocha-pombo/historica.png',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Casa-Rocha-Pombo-Morretes',
+        'video' => './video/morretes/rocha-pombo/video.mp4',
     ],
 
     [
@@ -87,6 +90,7 @@ $patrimonios = [
         'imagem_historica' => './img/morretes/sao-sebastiao/historica.png',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-de-Sao-Sebastiao-de-Porto-de-Cima-Morretes',
+        'video' => './video/morretes/sao-sebastiao/video.mp4',
     ],
 
     [
@@ -101,9 +105,10 @@ $patrimonios = [
         'descricao' => 'O conjunto reúne uma paisagem urbana representativa da formação histórica do litoral paranaense, às margens do Rio Nhundiaquara e ao sopé da Serra do Mar. Preserva relações entre natureza, caminhos coloniais, arquitetura, ferrovia, comércio, navegação fluvial e modos tradicionais de ocupação.',
         'caracteristicas' => 'Paisagem urbana histórica; arquitetura civil e religiosa; relação entre cidade, rio, serra e caminhos históricos.',
         'imagem_atual' => './img/morretes/conjunto-historico/atual.png',
-        'imagem_historica' => './img/morretes/conjunto-historico/historica.png',
+        'imagem_historica' => './img/morretes/conjunto-historico/historico.png',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Pagina/28-I-e-180-II-Conjunto-Historico-Urbanistico-e-Paisagistico-de-Morretes',
+        'video' => './video/morretes/conjunto-historico/video.mp4',
     ],
 ];
 
@@ -788,6 +793,10 @@ function e(?string $valor): string {
                     </span>
 
                 </div>
+                <video id="modalVideo" class="mt-4 w-full h-auto rounded-lg" controls>
+                    <source src="" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
 
             </div>
 
