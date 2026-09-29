@@ -794,7 +794,7 @@ function e(?string $valor): string {
 
                 </div>
                 <video id="modalVideo" class="mt-4 w-full h-auto rounded-lg" controls>
-                    <source src="" type="video/mp4">
+                    <source src="..." type="video/mp4">
                     Seu navegador não suporta o elemento de vídeo.
                 </video>
 

@@ -7,6 +7,8 @@ const historicaLayer = document.getElementById('historicaLayer');
 const sliderLine = document.getElementById('sliderLine');
 const modalHistorica = document.getElementById('modalHistorica');
 const modalAtual = document.getElementById('modalAtual');
+const modalVideo = document.getElementById('modalVideo');
+const modalVideoSource = modalVideo?.querySelector('source');
 const comparisonEmpty = document.getElementById('comparisonEmpty');
 const imageStatus = document.getElementById('imageStatus');
 
@@ -38,6 +40,15 @@ function abrirModal(id) {
 
     modalAtual.src = item.imagem_atual || '';
     modalAtual.alt = `${item.nome} — imagem atual`;
+    if (item.video) {
+    modalVideoSource.src = item.video;
+    modalVideo.load();
+    modalVideo.classList.remove('hidden');
+} else {
+    modalVideoSource.removeAttribute('src');
+    modalVideo.load();
+    modalVideo.classList.add('hidden');
+}
 
     if (item.imagem_historica) {
         modalHistorica.src = item.imagem_historica;
