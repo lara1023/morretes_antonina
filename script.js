@@ -9,6 +9,8 @@ const modalHistorica = document.getElementById('modalHistorica');
 const modalAtual = document.getElementById('modalAtual');
 const modalVideo = document.getElementById('modalVideo');
 const modalVideoSource = modalVideo?.querySelector('source');
+const modal3D = document.getElementById('modal3D');
+const modal3dsource = modal3D?.querySelector('source');
 const comparisonEmpty = document.getElementById('comparisonEmpty');
 const imageStatus = document.getElementById('imageStatus');
 
@@ -21,6 +23,7 @@ function atualizarComparacao(valor) {
 compareRange?.addEventListener('input', (event) => atualizarComparacao(event.target.value));
 
 function abrirModal(id) {
+    console.log('Abrindo modal para ID:', id);
     const item = dados.find(p => Number(p.id) === Number(id));
     if (!item) return;
 
@@ -41,14 +44,24 @@ function abrirModal(id) {
     modalAtual.src = item.imagem_atual || '';
     modalAtual.alt = `${item.nome} — imagem atual`;
     if (item.video) {
-    modalVideoSource.src = item.video;
-    modalVideo.load();
-    modalVideo.classList.remove('hidden');
-} else {
-    modalVideoSource.removeAttribute('src');
-    modalVideo.load();
-    modalVideo.classList.add('hidden');
-}
+        modalVideoSource.src = item.video;
+        modalVideo.load();
+        modalVideo.classList.remove('hidden');
+    } else {
+        modalVideoSource.removeAttribute('src');
+        modalVideo.load();
+        modalVideo.classList.add('hidden');
+    }
+
+    if (item.modelo_3d) {
+        modal3D.src = item.modelo_3d;
+        modal3D.alt = `${item.nome} — modelo 3D`;
+        modal3D.classList.remove('hidden');
+    } else {
+        modal3D?.removeAttribute('src');
+        modal3D.alt = `${item.nome} — modelo 3D`;
+        modal3D.classList.add('hidden');
+    }
 
     if (item.imagem_historica) {
         modalHistorica.src = item.imagem_historica;
@@ -63,6 +76,8 @@ function abrirModal(id) {
         comparisonEmpty.classList.add('flex');
         imageStatus.textContent = 'Imagem histórica pendente';
     }
+
+    
 
     compareRange.value = 50;
     atualizarComparacao(50);

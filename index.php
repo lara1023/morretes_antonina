@@ -18,7 +18,7 @@ $patrimonios = [
         'video' => './video/antonina/pilar/video.mp4',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-da-Nossa-Senhora-do-Pilar-Antonina',
-        
+        'modelo_3d' => './3D/igrejaPilar/index.html'
     ],
 
     [
@@ -109,6 +109,7 @@ $patrimonios = [
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Pagina/28-I-e-180-II-Conjunto-Historico-Urbanistico-e-Paisagistico-de-Morretes',
         'video' => './video/morretes/conjunto-historico/video.mp4',
+        '3d' => './3D/igreja.glb'
     ],
 ];
 
@@ -222,7 +223,15 @@ function e(?string $valor): string {
     <!-- HERO -->
 
     <section class="relative flex min-h-[720px] items-end overflow-hidden bg-stone-900 pt-20">
-
+        <model-viewer alt=""
+            class="background-blue mt-4 w-full h-full rounded-lg"
+            id="modal3D"
+            src="./3D/igreja.glb" 
+            ar environment-image="shared-assets/environments/moon_1k.hdr" 
+            poster="shared-assets/models/NeilArmstrong.webp" 
+            shadow-intensity="1" 
+            camera-controls touch-action="pan-y">
+        </model-viewer>
         <img
             src="./img/hero.jpg"
             alt="Paisagem histórica de Antonina ou Morretes"
@@ -445,6 +454,10 @@ function e(?string $valor): string {
                             Ver patrimônio
                             <i class="bi bi-arrow-up-right"></i>
                         </button>
+                        <a class="open-modal mt-6 inline-flex items-center gap-2 font-semibold text-stone-950 transition hover:text-amber-700"
+                        href="<?= e($p['modelo_3d']) ?>" target="_blank" rel="noopener noreferrer">
+                            Ver modelo 3D
+                        </a>
                     </div>
                 </article>
             <?php endforeach; ?>
@@ -933,6 +946,8 @@ window.PATRIMONIOS = <?= json_encode(
 </script>
 
 <script src="./script.js"></script>
+
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
 
 </body>
 </html>
