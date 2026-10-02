@@ -36,7 +36,8 @@ $patrimonios = [
         'imagem_historica' => './img/antonina/estacao/historica.png',
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Estacao-Ferroviaria-de-Antonina',
-        'video' => './video/antonina/estacao/video.mp4'
+        'video' => './video/antonina/estacao/video.mp4',
+        'modelo_3d' => './3D/estacao/index.html'
     ],
 
     [
@@ -55,6 +56,7 @@ $patrimonios = [
         'fonte_nome' => 'IPHAN / Prefeitura de Antonina',
         'fonte_url' => 'https://www.gov.br/iphan/pt-br/assuntos/noticias/iphan-fiscaliza-obras-de-restauracao-na-igreja-sao-benedito-em-antonina-pr',
         'video' => './video/antonina/sao-benedito/video.mp4',
+        'modelo_3d' => './3D/igreja2/index.html'
     ],
 
     [
@@ -454,10 +456,13 @@ function e(?string $valor): string {
                             Ver patrimônio
                             <i class="bi bi-arrow-up-right"></i>
                         </button>
-                        <a class="open-modal mt-6 inline-flex items-center gap-2 font-semibold text-stone-950 transition hover:text-amber-700"
+                        <?php if (!empty($p['modelo_3d'])){?>
+                        <a class="ms-5 open-modal mt-6 inline-flex items-center gap-2 font-semibold text-stone-950 transition hover:text-amber-700"
                         href="<?= e($p['modelo_3d']) ?>" target="_blank" rel="noopener noreferrer">
                             Ver modelo 3D
+                            <i class="bi bi-arrow-up-right"></i>
                         </a>
+                        <?php }?>
                     </div>
                 </article>
             <?php endforeach; ?>
