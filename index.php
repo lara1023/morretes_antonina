@@ -75,6 +75,7 @@ $patrimonios = [
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Casa-Rocha-Pombo-Morretes',
         'video' => './video/morretes/rocha-pombo/video.mp4',
+        'modelo_3d' => './3D/rochapombo/index.html'
     ],
 
     [
@@ -93,6 +94,7 @@ $patrimonios = [
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Bem-Tombado/Igreja-de-Sao-Sebastiao-de-Porto-de-Cima-Morretes',
         'video' => './video/morretes/sao-sebastiao/video.mp4',
+        'modelo_3d' => './3D/igreja3/index.html'
     ],
 
     [
@@ -111,7 +113,6 @@ $patrimonios = [
         'fonte_nome' => 'Patrimônio Cultural do Paraná',
         'fonte_url' => 'https://www.patrimoniocultural.pr.gov.br/Pagina/28-I-e-180-II-Conjunto-Historico-Urbanistico-e-Paisagistico-de-Morretes',
         'video' => './video/morretes/conjunto-historico/video.mp4',
-        '3d' => './3D/igreja.glb'
     ],
 ];
 
